@@ -7,7 +7,7 @@ import { createStreamPreTokenizer } from "./createStreamPreTokenizer";
 import { createTokenizer2 } from "./createTokenizer2";
 
 export function createTokenizer($p: {
-    parser: grammar.IStructureParser<inf.TokenizerAnnotationData>
+    parser: grammar.IStructureTokenConsumer<inf.TokenizerAnnotationData>
     onError: ($: {
         error: inf.TokenizerError
         range: inf.Range

@@ -67,7 +67,7 @@ export function printTokenizer2Error(error: inf.Tokenizer2Error): string {
 }
 
 export function createTokenizer2(
-    parser: sp.IStructureParser<inf.TokenizerAnnotationData>,
+    parser: sp.IStructureTokenConsumer<inf.TokenizerAnnotationData>,
     onError2: ($: {
         error: inf.Tokenizer2Error
         range: inf.Range

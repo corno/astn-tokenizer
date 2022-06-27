@@ -2,7 +2,7 @@
   "author": "Corno",
   "bin": {},
   "dependencies": {
-    "astn-tokenconsumer-api": "^0.1.0",
+    "astn-tokenconsumer-api": "^0.3.0",
     "pareto-runtime": "^0.22.0"
   },
   "files": [
