@@ -1,8 +1,6 @@
 {
   "author": "Corno",
   "bin": {},
-  "dependencies": {
-  },
   "files": [
     "dist",
     "data"
@@ -21,6 +19,6 @@
     "url": "git+https://github.com/corno/astn-tokenizer.git"
   },
   "types": "dist/index.d.ts",
-  "version": "0.0.2",
-  "content-fingerprint": "6cc58690d53d7db8a9d34986f42c7eeb1385f116"
+  "version": "0.1.0",
+  "content-fingerprint": "fec99a82a7b5341c320767af40ee64e71b77e74e"
 }
