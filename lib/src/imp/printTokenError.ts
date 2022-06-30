@@ -1,4 +1,4 @@
-import * as pr from "pareto-runtime"
+import * as pl from "pareto-lang-lib"
 
 import * as astn from "../interface"
 
@@ -26,6 +26,6 @@ export function printTokenError($: astn.TokenError): string {
             return `unterminated string`
         }
         default:
-            return pr.au($.type[0])
+            return pl.au($.type[0])
     }
 }

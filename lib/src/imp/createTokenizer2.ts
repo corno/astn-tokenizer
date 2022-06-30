@@ -1,7 +1,7 @@
 /* eslint
     complexity: off
 */
-import * as pr from "pareto-runtime"
+import * as pl from "pareto-lang-lib"
 
 import * as inf from "../interface"
 import * as sp from "astn-tokenconsumer-api"
@@ -272,7 +272,7 @@ export function createTokenizer2(
                                 throw new Error(`unexpected newline`)
                             }
                             default:
-                                pr.au(currentToken[0])
+                                pl.au(currentToken[0])
                         }
                     }
                     onNewLine($.range, "FIXME NEWLINE TOKEN STRING")
@@ -335,7 +335,7 @@ export function createTokenizer2(
                             break
                         }
                         default:
-                            pr.au(currentToken[0])
+                            pl.au(currentToken[0])
                     }
                     break
                 }
@@ -418,7 +418,7 @@ export function createTokenizer2(
                                     break
                                 }
                                 default:
-                                    pr.au($.type[0])
+                                    pl.au($.type[0])
                             }
                         }
                     }
@@ -503,7 +503,7 @@ export function createTokenizer2(
                     break
                 }
                 default:
-                    pr.au(data.type[0])
+                    pl.au(data.type[0])
             }
         },
         onEnd: (location: inf.Location) => {

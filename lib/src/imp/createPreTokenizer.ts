@@ -2,6 +2,8 @@
     complexity:"off",
     no-console:"off",
 */
+import * as pl from "pareto-lang-lib"
+import * as pa from "pareto-lang-api"
 import * as pr from "pareto-runtime"
 
 import * as tokenLevel from "../interface"
@@ -105,8 +107,8 @@ type FoundNewlineCharacter = {
 }
 
 type NoneContext = {
-    foundNewlineCharacter: pr.optional<FoundNewlineCharacter>
-    foundSolidus: pr.optional<tokenLevel.Location>
+    foundNewlineCharacter: pa.optional<FoundNewlineCharacter>
+    foundSolidus: pa.optional<tokenLevel.Location>
 }
 
 type Unicode = {
@@ -118,7 +120,7 @@ type StringContext = {
     slashed: boolean
     readonly startCharacter: number
     unicode: null | Unicode
-    foundNewlineCharacter: pr.optional<FoundNewlineCharacter>
+    foundNewlineCharacter: pa.optional<FoundNewlineCharacter>
 }
 
 function getCurrentCharacterRange(ls: ILocationState): tokenLevel.Range {
@@ -267,7 +269,7 @@ export function createPreTokenizer(
                 }
             }
             default:
-                return pr.au(fnlc.type[0])
+                return pl.au(fnlc.type[0])
         }
     }
     function flushString(
@@ -378,7 +380,7 @@ export function createPreTokenizer(
                         }],
                     }
                 default:
-                    return pr.au(ct[0])
+                    return pl.au(ct[0])
             }
         },
         createNextToken: (loopState) => {
@@ -880,7 +882,7 @@ export function createPreTokenizer(
                                         }
                                     }
                                     default:
-                                        return pr.au($.foundNewlineCharacter.type)
+                                        return pl.au($.foundNewlineCharacter.type)
                                 }
                             } else {
                                 //not slashed, not unicode, not newline
@@ -1052,7 +1054,7 @@ export function createPreTokenizer(
                     )
                 }
                 default:
-                    return pr.au(currentToken[0])
+                    return pl.au(currentToken[0])
             }
         },
     }
