@@ -25,6 +25,6 @@
     "url": "git+https://github.com/corno/astn-tokenizer.git"
   },
   "types": "dist/index.d.ts",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "content-fingerprint": "79a99a85797d8858d9407f6875a4ed7482064894"
 }
