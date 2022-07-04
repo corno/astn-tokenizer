@@ -5,7 +5,7 @@
     "astn-tokenconsumer-api": "^0.3.4",
     "astn-tokenizer-api": "^0.1.1",
     "pareto-lang-lib": "^0.8.0",
-    "pareto-runtime": "^0.23.0"
+    "pareto-runtime": "^0.24.0"
   },
   "files": [
     "dist",
@@ -26,5 +26,5 @@
   },
   "types": "dist/index.d.ts",
   "version": "0.2.0",
-  "content-fingerprint": "b6711d4d73fcb1ac5620a1f1587c918e310bccda"
+  "content-fingerprint": "6bcf2be5d971b2d03283a75da98d6855e813fe6b"
 }
