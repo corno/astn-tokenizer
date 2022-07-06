@@ -1,0 +1,65 @@
+[
+	[
+		"error",
+		{
+			"error": [
+				"pre",
+				{
+					"type": [
+						"found dangling slash",
+						{}
+					]
+				}
+			],
+			"range": {
+				"start": {
+					"position": 1,
+					"line": 1,
+					"column": 2
+				},
+				"length": 1,
+				"size": [
+					"single line",
+					{
+						"column offset": 1
+					}
+				]
+			}
+		}
+	],
+	[
+		"token",
+		{
+			"annotation": {
+				"range": {
+					"start": {
+						"position": 1,
+						"line": 1,
+						"column": 2
+					},
+					"length": 1,
+					"size": [
+						"single line",
+						{
+							"column offset": 1
+						}
+					]
+				},
+				"indentation": ""
+			},
+			"token": [
+				"content",
+				[
+					"simple string",
+					{
+						"value": "5",
+						"wrapping": [
+							"none",
+							{}
+						]
+					}
+				]
+			]
+		}
+	]
+]

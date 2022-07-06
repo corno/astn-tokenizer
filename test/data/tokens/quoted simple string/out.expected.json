@@ -1,0 +1,37 @@
+[
+	[
+		"token",
+		{
+			"annotation": {
+				"range": {
+					"start": {
+						"position": 0,
+						"line": 1,
+						"column": 1
+					},
+					"length": 3,
+					"size": [
+						"single line",
+						{
+							"column offset": 3
+						}
+					]
+				},
+				"indentation": ""
+			},
+			"token": [
+				"content",
+				[
+					"simple string",
+					{
+						"value": "5",
+						"wrapping": [
+							"quote",
+							{}
+						]
+					}
+				]
+			]
+		}
+	]
+]

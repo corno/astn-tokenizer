@@ -1,0 +1,30 @@
+[
+	[
+		"error",
+		{
+			"error": [
+				"pre",
+				{
+					"type": [
+						"unterminated block comment",
+						{}
+					]
+				}
+			],
+			"range": {
+				"start": {
+					"position": 14,
+					"line": 1,
+					"column": 15
+				},
+				"length": 0,
+				"size": [
+					"single line",
+					{
+						"column offset": 0
+					}
+				]
+			}
+		}
+	]
+]

@@ -1,0 +1,30 @@
+[
+	[
+		"error",
+		{
+			"error": [
+				"pre",
+				{
+					"type": [
+						"found dangling slash at the end of the text",
+						{}
+					]
+				}
+			],
+			"range": {
+				"start": {
+					"position": 1,
+					"line": 1,
+					"column": 2
+				},
+				"length": 1,
+				"size": [
+					"single line",
+					{
+						"column offset": 1
+					}
+				]
+			}
+		}
+	]
+]
