@@ -5,11 +5,11 @@ import * as pr from "pareto-runtime"
 
 import { createHandledFilesystem } from "../../modules/fs/HandledFilesystem"
 import * as fslib from "pareto-filesystem-lib"
+import * as testlib from "pareto-test-lib"
 import * as asyncLib from "pareto-async-lib"
 import * as diffLib from "pareto-diff-lib"
-import { getTests } from "./getTests"
+import { getTests } from "../../imp/getTests"
 import { createValidateFile } from "../../modules/test/createValidateFile"
-import { report } from "./report"
 
 
 pr.runProgram(
@@ -35,25 +35,26 @@ pr.runProgram(
                     diff.diffLines,
                     async.value,
                 )
-                async.tuple2(
 
-                    getTests(
-                        [path, "errors"],
-                        fs.directory,
-                        fs.file,
-                        tokLib.createTokenizer,
-                        validateFile,
-                    ),
-                    getTests(
-                        [path, "tokens"],
-                        fs.directory,
-                        fs.file,
-                        tokLib.createTokenizer,
-                        validateFile,
-                    ),
+                getTests(
+                    path,
+                    async.rewrite,
+                    async.tuple2,
+                    fs.directory,
+                    fs.file,
+                    tokLib.createTokenizer,
+                    validateFile,
                 ).execute(($ => {
-                    report($.first)
-                    report($.second)
+                    testlib.init().serializeTestResult(
+                        {
+                            testResult: $,
+                            showSummary: true,
+
+                        },
+                        (str) => {
+                            pr.log(str)
+                        }
+                    )
                 }))
             },
             ($, path) => {

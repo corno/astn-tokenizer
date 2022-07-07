@@ -1,5 +1,5 @@
 import * as asyncAPI from "pareto-async-api"
-import * as diffAPI from "pareto-diff-api"
+import { TTestElement } from "pareto-test-api"
 
 
 export type ValidateFile = (
@@ -7,4 +7,4 @@ export type ValidateFile = (
     fileName: string,
     extension: string,
     actualData: string,
-) => asyncAPI.IAsync<diffAPI.Change[]>
+) => asyncAPI.IAsync<TTestElement>
