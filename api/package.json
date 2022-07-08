@@ -20,5 +20,8 @@
   },
   "types": "dist/index.d.ts",
   "version": "0.1.1",
-  "content-fingerprint": "198c6284ff837f77a567da1ed8a097d7312cffc2"
+  "dependencies": {
+    "astn-tokenconsumer-api": "^0.3.4"
+  },
+  "content-fingerprint": "c43a315e9c1e9d8b9cfb4a8473e5bdd5b6bca79e"
 }
