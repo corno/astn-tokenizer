@@ -25,6 +25,8 @@ pr.runProgram(
 
         const tokLib = lib.init()
 
+        const fs = fslib.init()
+
 
         createHandledFilesystem(
             (fs) => {
@@ -45,7 +47,11 @@ pr.runProgram(
                     tokLib.createTokenizer,
                     validateFile,
                 ).execute(($ => {
-                    testlib.init().serializeTestResult(
+                    testlib.init(
+                        fs,
+                        diff,
+                        async
+                    ).serializeTestResult(
                         {
                             testResult: $,
                             showSummary: true,
@@ -60,7 +66,7 @@ pr.runProgram(
             ($, path) => {
                 pr.logError(`FS ERROR ${path}: ${$[0]}`)
             },
-            fslib.init()
+            fs
         )
 
     }
