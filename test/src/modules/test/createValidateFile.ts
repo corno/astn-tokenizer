@@ -75,7 +75,7 @@ export function createValidateFile(
                 return asyncValue(
                     {
                         type: ["test", {
-                            success: true,
+                            success: parts.length === 0,
                             type: ["large string", {
                                 parts: parts
 
