@@ -1,5 +1,5 @@
-import { Range } from "./Range"
-import { Location } from "./Location"
+import { Range } from "astn-tokenizer-api"
+import { Location } from "astn-tokenizer-api"
 import * as sp from "astn-tokenconsumer-api"
 
 

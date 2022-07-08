@@ -6,7 +6,7 @@ import * as pl from "pareto-lang-lib"
 import * as pa from "pareto-lang-api"
 import * as pr from "pareto-runtime"
 
-import * as tokenLevel from "../interface"
+import * as tokenLevel from "astn-tokenizer-api"
 import * as sp from "astn-tokenconsumer-api"
 
 import { PreToken } from "./PreToken"

@@ -3,17 +3,18 @@
 */
 import * as pl from "pareto-lang-lib"
 
+import * as api from "astn-tokenizer-api"
 import * as inf from "../interface"
 import * as sp from "astn-tokenconsumer-api"
 
 import { getEndLocationFromRange } from "./getEndLocationFromRange"
 import { WrappedStringType } from "./PreToken"
 
-function createRangeFromLocations(start: inf.Location, end: inf.Location): inf.Range {
+function createRangeFromLocations(start: api.Location, end: api.Location): api.Range {
     return {
         start: start,
         length: end.position - start.position,
-        size: ((): inf.RangeSize => {
+        size: ((): api.RangeSize => {
             if (start.line === end.line) {
                 return ["single line", { "column offset": end.column - start.column }]
             } else {
@@ -23,7 +24,7 @@ function createRangeFromLocations(start: inf.Location, end: inf.Location): inf.R
     }
 }
 
-function createRangeFromSingleLocation(location: inf.Location): inf.Range {
+function createRangeFromSingleLocation(location: api.Location): api.Range {
     return {
         start: location,
         length: 0,
@@ -33,22 +34,22 @@ function createRangeFromSingleLocation(location: inf.Location): inf.Range {
 
 type NonWrappedStringContext = {
     nonwrappedStringNode: string
-    readonly start: inf.Location
+    readonly start: api.Location
 }
 type WhitespaceContext = {
     whitespaceNode: string
-    readonly start: inf.Location
+    readonly start: api.Location
 }
 
 type CommentContext = {
     commentNode: string
-    readonly start: inf.Range
+    readonly start: api.Range
     readonly indentation: null | string
 }
 
 type WrappedStringContext = {
     readonly type: WrappedStringType
-    readonly start: inf.Range
+    readonly start: api.Range
     wrappedStringNode: string
     indentation: string
 }
@@ -62,19 +63,19 @@ type CurrentToken =
     | ["whitespace", WhitespaceContext]
 
 
-export function printTokenizer2Error(error: inf.Tokenizer2Error): string {
+export function printTokenizer2Error(error: api.Tokenizer2Error): string {
     return error[0]
 }
 
 export function createTokenizer2(
-    parser: sp.IStructureTokenConsumer<inf.TokenizerAnnotationData>,
+    parser: sp.IStructureTokenConsumer<api.TokenizerAnnotationData>,
     onError2: ($: {
-        error: inf.Tokenizer2Error
-        range: inf.Range
+        error: api.Tokenizer2Error
+        range: api.Range
     }) => void,
 ): inf.IPreTokenStreamConsumer {
 
-    function onError(error: inf.Tokenizer2Error, range: inf.Range) {
+    function onError(error: api.Tokenizer2Error, range: api.Range) {
         onError2({
             error: error,
             range: range,
@@ -103,8 +104,8 @@ export function createTokenizer2(
     })()
 
     function createAnnotation(
-        range: inf.Range,
-    ): inf.TokenizerAnnotationData {
+        range: api.Range,
+    ): api.TokenizerAnnotationData {
         return {
             range: range,
             indentation: indentationState.getIndentation(),
@@ -112,13 +113,13 @@ export function createTokenizer2(
     }
     let currentToken: CurrentToken = ["none", {}]
 
-    function setCurrentToken(contextType: CurrentToken, range: inf.Range) {
+    function setCurrentToken(contextType: CurrentToken, range: api.Range) {
         if (currentToken[0] !== "none") {
             onError(["unexpected start of token", {}], range)
         }
         currentToken = contextType
     }
-    function unsetCurrentToken(range: inf.Range) {
+    function unsetCurrentToken(range: api.Range) {
         if (currentToken[0] === "none") {
             onError(["unexpected, parser is already in 'none' mode", {}], range)
         }
@@ -194,7 +195,7 @@ export function createTokenizer2(
                 }
                 case "line comment end": {
                     const $ = data.type[1]
-                    function onLineCommentEnd(location: inf.Location) {
+                    function onLineCommentEnd(location: api.Location) {
 
                         if (currentToken[0] !== "line comment") {
                             onError(["Unexpected line comment end", {}], createRangeFromSingleLocation(location))
@@ -229,7 +230,7 @@ export function createTokenizer2(
                 }
                 case "newline": {
                     const $ = data.type[1]
-                    function onNewLine(_range: inf.Range, _tokenString: string) {
+                    function onNewLine(_range: api.Range, _tokenString: string) {
 
                         indentationState.onNewline()
 
@@ -342,7 +343,7 @@ export function createTokenizer2(
                 case "wrapped string begin": {
                     const $ = data.type[1]
                     indentationState.setLineDirty()
-                    function onWrappedStringBegin(begin: inf.Range, quote: WrappedStringType) {
+                    function onWrappedStringBegin(begin: api.Range, quote: WrappedStringType) {
                         setCurrentToken(
                             ["wrapped string", {
                                 wrappedStringNode: "",
@@ -358,7 +359,7 @@ export function createTokenizer2(
                 }
                 case "wrapped string end": {
                     const $ = data.type[1]
-                    function onWrappedStringEnd(end: inf.Range, wrapper: string | null) {
+                    function onWrappedStringEnd(end: api.Range, wrapper: string | null) {
                         if (currentToken[0] !== "wrapped string") {
                             onError(["Unexpected nonwrapped string end", {}], end)
                         } else {
@@ -427,7 +428,7 @@ export function createTokenizer2(
                 }
                 case "non wrapped string begin": {
                     const $ = data.type[1]
-                    function onNonWrappedStringBegin(location: inf.Location) {
+                    function onNonWrappedStringBegin(location: api.Location) {
 
                         indentationState.setLineDirty()
 
@@ -438,7 +439,7 @@ export function createTokenizer2(
                 }
                 case "non wrapped string end": {
                     const $ = data.type[1]
-                    function onNonWrappedStringEnd(location: inf.Location) {
+                    function onNonWrappedStringEnd(location: api.Location) {
 
                         if (currentToken[0] !== "non wrapped string") {
                             onError(["Unexpected nonwrapped string end", {}], createRangeFromSingleLocation(location))
@@ -467,7 +468,7 @@ export function createTokenizer2(
                 }
                 case "whitespace begin": {
                     const $ = data.type[1]
-                    function onWhitespaceBegin(location: inf.Location) {
+                    function onWhitespaceBegin(location: api.Location) {
                         const $: WhitespaceContext = { whitespaceNode: "", start: location }
 
                         setCurrentToken(["whitespace", $], createRangeFromSingleLocation(location))
@@ -478,7 +479,7 @@ export function createTokenizer2(
                 }
                 case "whitespace end": {
                     const $ = data.type[1]
-                    function onWhitespaceEnd(location: inf.Location) {
+                    function onWhitespaceEnd(location: api.Location) {
 
                         if (currentToken[0] !== "whitespace") {
                             onError(["Unexpected whitespace end", {}], createRangeFromSingleLocation(location))
@@ -506,7 +507,7 @@ export function createTokenizer2(
                     pl.au(data.type[0])
             }
         },
-        onEnd: (location: inf.Location) => {
+        onEnd: (location: api.Location) => {
             parser.onEnd(
                 createAnnotation(
                     createRangeFromLocations(location, location),

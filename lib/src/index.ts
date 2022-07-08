@@ -12,7 +12,7 @@ export * from "./interface"
 import * as tc from "astn-tokenconsumer-api"
 import { createTokenizer } from "./imp/createTokenizer"
 import { printTokenizerError } from "./imp/printTokenizerError"
-import * as inf from "./interface"
+import * as inf from "astn-tokenizer-api"
 
 export type IStreamConsumer<DataType, EndDataType> = {
     onData(data: DataType): void

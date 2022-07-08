@@ -1,5 +1,5 @@
 import * as pr from "pareto-runtime"
-import * as tokenLevel from "../types/Location"
+import * as tokenLevel from "astn-tokenizer-api"
 
 import { PreToken } from "../types/PreToken"
 

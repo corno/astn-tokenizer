@@ -5,9 +5,9 @@
 
 import * as pr from "pareto-runtime"
 
-import * as tokenLevel from "../interface"
+import * as tokenLevel from "astn-tokenizer-api"
 
-import { TokenizerOptions } from "../interface"
+import { TokenizerOptions, IPreTokenStreamConsumer } from "../interface"
 import { IChunk } from "./IChunk"
 import { ILocationState } from "./ILocationState"
 import { createPreTokenizer } from "./createPreTokenizer"
@@ -28,7 +28,7 @@ const Whitespace = {
  * @param opt
  */
 export function createStreamPreTokenizer(
-    tokenStreamConsumer: tokenLevel.IPreTokenStreamConsumer,
+    tokenStreamConsumer: IPreTokenStreamConsumer,
     onError: ($: {
         error: tokenLevel.TokenError
         range: tokenLevel.Range

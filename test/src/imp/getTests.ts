@@ -1,5 +1,5 @@
 
-import * as lib from "../../../lib/dist"
+import * as lib from "astn-tokenizer-api"
 
 import * as pr from "pareto-runtime"
 import * as pl from "pareto-lang-lib"

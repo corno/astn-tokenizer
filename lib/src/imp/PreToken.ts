@@ -1,4 +1,4 @@
-import * as tokenLevel from "../interface"
+import * as tokenLevel from "astn-tokenizer-api"
 import * as sp from "astn-tokenconsumer-api"
 
 

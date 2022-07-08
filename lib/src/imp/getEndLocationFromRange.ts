@@ -1,4 +1,4 @@
-import * as tokenLevel from "../interface"
+import * as tokenLevel from "astn-tokenizer-api"
 
 export function getEndLocationFromRange(range: tokenLevel.Range): tokenLevel.Location {
     return {

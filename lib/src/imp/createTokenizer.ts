@@ -1,6 +1,6 @@
 import * as pr from "pareto-runtime"
 
-import * as inf from "../interface"
+import * as inf from "astn-tokenizer-api"
 import * as grammar from "astn-tokenconsumer-api"
 
 import { createStreamPreTokenizer } from "./createStreamPreTokenizer";

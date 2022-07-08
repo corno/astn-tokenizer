@@ -1,6 +1,6 @@
 import * as pl from "pareto-lang-lib"
 
-import * as astn from "../interface"
+import * as astn from "astn-tokenizer-api"
 
 export function printTokenError($: astn.TokenError): string {
 
