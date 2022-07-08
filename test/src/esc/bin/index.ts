@@ -25,13 +25,19 @@ pr.runProgram(
 
         const fs = fslib.init()
 
+        const hfs = fs.createHandledFilesystem(
+            ($) => {
+                throw new Error("IMPLEMENT ME!")
+            }
+        )
+
 
         getTests(
             path,
             async.rewrite,
             async.tuple2,
-            fs.directory,
-            fs.file,
+            hfs.directory,
+            hfs.file,
             tokLib.createTokenizer,
             testlib.init(
                 fs,

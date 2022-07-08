@@ -7,8 +7,7 @@ import * as tc from "astn-tokenconsumer-api"
 
 import * as fsAPI from "pareto-filesystem-api"
 
-import { Directory, File } from "../modules/fs/HandledFilesystem"
-import { ValidateFile } from "../modules/test/ValidateFile"
+import { Directory, File } from "pareto-handledfilesystem-api"
 import * as ta from "pareto-test-api"
 import * as asyncAPI from "pareto-async-api"
 import * as afAPI from "pareto-async-functions-api"
@@ -21,7 +20,7 @@ export function getTests(
     directory: Directory,
     file: File,
     createTokenizer: lib.CreateTokenizer,
-    validateFile: ValidateFile,
+    validateFile: ta.ValidateFile,
 ): asyncAPI.IAsync<ta.TTestResult> {
     function getTests2(
         path2: fsAPI.Path,
