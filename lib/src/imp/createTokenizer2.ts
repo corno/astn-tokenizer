@@ -1,7 +1,7 @@
 /* eslint
     complexity: off
 */
-import * as pl from "pareto-lang-lib"
+import * as pl from "pareto-lib-core"
 
 import * as api from "astn-tokenizer-api"
 import * as inf from "../interface"

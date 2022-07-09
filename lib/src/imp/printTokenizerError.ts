@@ -1,4 +1,4 @@
-import * as pl from "pareto-lang-lib"
+import * as pl from "pareto-lib-core"
 
 import * as inf from "astn-tokenizer-api"
 import { printTokenizer2Error } from "./createTokenizer2"

@@ -2,8 +2,8 @@
     complexity:"off",
     no-console:"off",
 */
-import * as pl from "pareto-lang-lib"
-import * as pa from "pareto-lang-api"
+import * as pl from "pareto-lib-core"
+import * as pa from "pareto-api-core"
 import * as pr from "pareto-runtime"
 
 import * as tokenLevel from "astn-tokenizer-api"

@@ -2,29 +2,29 @@
 import * as lib from "astn-tokenizer-api"
 
 import * as pr from "pareto-runtime"
-import * as pl from "pareto-lang-lib"
+import * as pa from "pareto-api-core"
+import * as pl from "pareto-lib-core"
 import * as tc from "astn-tokenconsumer-api"
 
 import * as fsAPI from "pareto-filesystem-api"
 
 import { Directory, File } from "pareto-handledfilesystem-api"
 import * as ta from "pareto-test-api"
-import * as asyncAPI from "pareto-async-api"
 import * as afAPI from "pareto-async-functions-api"
 
 
 export function getTests(
     path: string,
     rewrite: afAPI.Rewrite,
-    tuple2: afAPI.Tuple2,
+    tuple3: afAPI.Tuple3,
     directory: Directory,
     file: File,
     createTokenizer: lib.CreateTokenizer,
     validateFile: ta.ValidateFile,
-): asyncAPI.IAsync<ta.TTestResult> {
+): pa.IAsync<ta.TTestResult> {
     function getTests2(
         path2: fsAPI.Path,
-    ): asyncAPI.IAsync<ta.TTestElement> {
+    ): pa.IAsync<ta.TTestElement> {
         return rewrite(
             directory(
                 path2,
@@ -83,9 +83,12 @@ export function getTests(
         )
     }
     
-    return tuple2(
+    return tuple3(
         getTests2(
             [path, "errors"],
+        ),
+        getTests2(
+            [path, "other"],
         ),
         getTests2(
             [path, "tokens"],
@@ -95,7 +98,8 @@ export function getTests(
                 root: {
                     elements: pl.createDictionary({
                         "errors": $.first,
-                        "tokens": $.second,
+                        "other": $.second,
+                        "tokens": $.third,
                     })
                 }
             }

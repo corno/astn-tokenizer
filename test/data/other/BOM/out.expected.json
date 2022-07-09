@@ -1,0 +1,105 @@
+[
+	[
+		"token",
+		{
+			"annotation": {
+				"range": {
+					"start": {
+						"position": 0,
+						"line": 1,
+						"column": 1
+					},
+					"length": 1,
+					"size": [
+						"single line",
+						{
+							"column offset": 1
+						}
+					]
+				},
+				"indentation": ""
+			},
+			"token": [
+				"content",
+				[
+					"simple string",
+					{
+						"value": "﻿",
+						"wrapping": [
+							"none",
+							{}
+						]
+					}
+				]
+			]
+		}
+	],
+	[
+		"token",
+		{
+			"annotation": {
+				"range": {
+					"start": {
+						"position": 1,
+						"line": 1,
+						"column": 2
+					},
+					"length": 1,
+					"size": [
+						"single line",
+						{
+							"column offset": 1
+						}
+					]
+				},
+				"indentation": ""
+			},
+			"token": [
+				"content",
+				[
+					"structural",
+					{
+						"type": [
+							"open dictionary",
+							{}
+						]
+					}
+				]
+			]
+		}
+	],
+	[
+		"token",
+		{
+			"annotation": {
+				"range": {
+					"start": {
+						"position": 2,
+						"line": 1,
+						"column": 3
+					},
+					"length": 1,
+					"size": [
+						"single line",
+						{
+							"column offset": 1
+						}
+					]
+				},
+				"indentation": ""
+			},
+			"token": [
+				"content",
+				[
+					"structural",
+					{
+						"type": [
+							"close dictionary",
+							{}
+						]
+					}
+				]
+			]
+		}
+	]
+]

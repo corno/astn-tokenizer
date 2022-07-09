@@ -2,16 +2,14 @@
   "dependencies": {
     "astn-tokenconsumer-api": "^0.3.4",
     "astn-tokenizer-api": "^0.2.0",
-    "pareto-async-api": "^0.8.0",
-    "pareto-async-lib": "^0.9.0",
+    "pareto-async-functions-lib": "^0.13.0",
     "pareto-diff-api": "^0.1.0",
-    "pareto-diff-lib": "^0.2.0",
-    "pareto-filesystem-api": "^0.13.0",
-    "pareto-filesystem-lib": "^0.22.0",
-    "pareto-handledfilesystem-api": "^0.7.0",
-    "pareto-lang-lib": "^0.8.0",
-    "pareto-runtime": "^0.24.0",
-    "pareto-test-lib": "^0.16.0",
-    "pareto-validate-workspace-bin": "^0.3.0"
+    "pareto-diff-lib": "^0.3.0",
+    "pareto-filesystem-api": "^0.15.0",
+    "pareto-filesystem-res": "^0.25.0",
+    "pareto-handledfilesystem-api": "^0.8.0",
+    "pareto-runtime": "^0.25.0",
+    "pareto-test-lib": "^0.20.0",
+    "pareto-validate-workspace-bin": "^0.4.0"
   }
 }
