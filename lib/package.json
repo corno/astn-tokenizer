@@ -3,7 +3,7 @@
   "bin": {},
   "dependencies": {
     "astn-tokenconsumer-api": "^0.3.4",
-    "astn-tokenizer-api": "^0.2.0",
+    "astn-tokenizer-api": "^0.3.0",
     "pareto-lib-core": "^0.5.0",
     "pareto-runtime": "^0.25.0"
   },
@@ -26,5 +26,5 @@
   },
   "types": "dist/index.d.ts",
   "version": "0.7.0",
-  "content-fingerprint": "6112676690697b97f81062c256a950c3368397a2"
+  "content-fingerprint": "ce1e19acba9fadc65d9c67a3b9f534dbb21b9e1c"
 }

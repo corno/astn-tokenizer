@@ -9,35 +9,18 @@
 
 export * from "./interface"
 
-import * as tc from "astn-tokenconsumer-api"
 import { createTokenizer } from "./imp/createTokenizer"
 import { printTokenizerError } from "./imp/printTokenizerError"
-import * as inf from "astn-tokenizer-api"
+import * as api from "astn-tokenizer-api"
+import { printLocation } from "./imp/printLocation"
+import { printRange } from "./imp/printRange"
 
-export type IStreamConsumer<DataType, EndDataType> = {
-    onData(data: DataType): void
-    onEnd(data: EndDataType): void
-}
-
-export type CreateTokenizer = ($p: {
-    parser: tc.IStructureTokenConsumer<inf.TokenizerAnnotationData>
-    onError: ($: {
-        error: inf.TokenizerError
-        range: inf.Range
-    }) => void
-}) => IStreamConsumer<string, null>
-
-export type PrintTokenizerError = ($: inf.TokenizerError) => string
-
-export type API = {
-    createTokenizer: CreateTokenizer
-    createTokenizerErrorMessage: PrintTokenizerError
-}
-
-export function init(): API {
+export function init(): api.API {
     return {
         createTokenizer: createTokenizer,
         createTokenizerErrorMessage: printTokenizerError,
+        createLocationMessage: printLocation,
+        createRangeMessage: printRange,
     }
 
 }
