@@ -1,6 +1,8 @@
 interface Array<T> {
     length: number
     filter: (callback: ($: T) => boolean) => Array<T>
+    push(v: T): void
+
 }
 
 interface String {
@@ -14,3 +16,9 @@ interface String {
     //toUpperCase(): string
     //padStart():
 }
+
+interface ErrorConstructor {
+    new(message?: string): Error
+}
+
+declare let Error: ErrorConstructor;

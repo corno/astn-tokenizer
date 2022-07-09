@@ -1,5 +1,6 @@
 interface Array<T> {
     concat(array: T[]): T[]
+    push(v: T): void
 }
 interface String {
     readonly length: number
@@ -13,3 +14,11 @@ interface String {
     //toUpperCase(): string
     //padStart():
 }
+
+declare function isNaN(v: any): boolean
+
+interface ErrorConstructor {
+    new(message?: string): Error
+}
+
+declare let Error: ErrorConstructor;
