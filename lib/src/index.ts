@@ -14,6 +14,7 @@ import { printTokenizerError } from "./imp/printTokenizerError"
 import * as api from "astn-tokenizer-api"
 import { printLocation } from "./imp/printLocation"
 import { printRange } from "./imp/printRange"
+import { getEndLocationFromRange } from "./imp/getEndLocationFromRange"
 
 export function init(): api.API {
     return {
@@ -21,6 +22,7 @@ export function init(): api.API {
         createTokenizerErrorMessage: printTokenizerError,
         createLocationMessage: printLocation,
         createRangeMessage: printRange,
+        getEndLocationFromRange: getEndLocationFromRange,
     }
 
 }
