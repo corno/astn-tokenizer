@@ -18,7 +18,13 @@ export type CreateTokenizer = ($p: {
 
 export type PrintTokenizerError = ($: inf.TokenizerError) => string
 
+export type CreateRangeMessage = (range: inf.Range) => string
+export type CreateLocationMessage = (range: inf.Location) => string
+
 export type API = {
     createTokenizer: CreateTokenizer
     createTokenizerErrorMessage: PrintTokenizerError
+    createRangeMessage: CreateRangeMessage
+    createLocationMessage: CreateLocationMessage
+
 }
