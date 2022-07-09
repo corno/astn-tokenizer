@@ -19,7 +19,7 @@
     "url": "git+https://github.com/corno/astn-tokenizer.git"
   },
   "types": "dist/index.d.ts",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "dependencies": {
     "astn-tokenconsumer-api": "^0.3.4"
   },
