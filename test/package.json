@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "astn-tokenconsumer-api": "^0.3.4",
-    "astn-tokenizer-api": "^0.2.0",
+    "astn-tokenizer-api": "^0.4.0",
     "pareto-async-functions-lib": "^0.14.0",
     "pareto-diff-api": "^0.1.0",
     "pareto-diff-lib": "^0.3.0",
